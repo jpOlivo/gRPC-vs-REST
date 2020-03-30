@@ -1,0 +1,17 @@
+spring:
+   application:
+      name: spring-boot-grpc-demo
+      
+server:
+   port: 8080
+grpc:
+   port: 8081
+   
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+   endpoint:
+      health:
+         show-details: ALWAYS
