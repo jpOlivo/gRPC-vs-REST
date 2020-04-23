@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GreetingServiceImpl implements GrettingService {
-  private static final String template = "Hello, %s!";
+  private static final String TEMPLATE = "Hello, %s!";
   private final AtomicLong counter = new AtomicLong();
 
   @Override
   public GreetingResponse greeting(String name) {
     return GreetingResponse.newBuilder()
         .setId(counter.incrementAndGet())
-        .setContent(String.format(template, name))
+        .setContent(String.format(TEMPLATE, name))
         .build();
   }
 }

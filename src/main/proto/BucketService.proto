@@ -1,0 +1,30 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package com.jpolivo.demogrpc.bucket.core;
+
+message BucketLegacyRequest {
+	string productId = 1;
+}
+
+message BucketLegacyResponse {
+	repeated Bucket bucketBalance = 1;
+  	Bucket bucketBalanceBill = 2;
+}
+
+message Bucket {
+	string name = 1;
+	string description = 2;
+	bytes remainedAmount = 3;
+	bytes totalAmount = 4;
+	string validFor = 5;
+  	string status = 6;
+  	string bucketType = 7;
+  	string action = 8;
+  	bytes balanceAmount = 9;
+  	bool allowed = 10;
+}
+
+service BucketService {
+    rpc bucket(BucketLegacyRequest) returns (BucketLegacyResponse);
+}
